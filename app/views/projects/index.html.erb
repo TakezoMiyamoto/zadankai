@@ -1,3 +1,4 @@
 <% @projects.each do |project| %>
   <h2><%= project.project_name %></h2>
+  <p><%= image_tag project.main_image.url if project.main_image? %></p>
 <% end %>
