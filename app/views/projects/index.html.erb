@@ -1,6 +1,6 @@
 <% @projects.each do |project| %>
   <h2><%= project.project_name %></h2>
   <p><%= image_tag project.main_image.url if project.main_image? %></p>
-  <p><%= image_tag(project.movie_url(:screenshot).to_s, id: "movie", :alt => "screenshot") %>
+  <p><%= image_tag(project.movie_url(:screenshot).to_s, id: "movie", :alt => "screenshot") if project.movie? %>
 </p>
 <% end %>
