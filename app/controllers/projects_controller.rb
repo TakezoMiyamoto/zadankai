@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.build(project_params)
     if @project.save
       
-      redirect_to root_url
+      redirect_to projects_path, notice: '新規プロジェクトを作成しました'
     else
       render 'zadankai/home'
     end
