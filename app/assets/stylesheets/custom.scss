@@ -5,7 +5,12 @@ body {
     padding-top: 70px;
     margin-left: 50px;
 }
-
+#brand-logo {
+    color:#FFCCFF;
+}
+#brand-logo:hover {
+    color:#FF99FF;
+}
 .login-container{
     position: relative;
     width: 300px;
