@@ -1,2 +1,23 @@
-<h1>Projects#new</h1>
-<p>Find me in app/views/projects/new.html.erb</p>
+<h1 style="text-align: center;">Create New Preject!!</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 "form-group"">
+    <%= form_for(@project) do |f| %>
+
+      <%= f.label :project_name %>
+      <%= f.text_field :project_name, class: "form-control" %>
+
+      <%= f.label :category %>
+      <%= f.text_field :category, class: "form-control" %>
+
+      <%= f.label :main_image %>
+      <%= f.text_field :main_image, class: "form-control" %>
+
+      <%= f.label :movie %>
+      <%= f.text_field :movie, class: "form-control" %></br>
+
+      <%= f.submit "Create new project!", class: "btn btn-large btn-primary form-control" %>
+      
+    <% end %>
+  </div>
+</div>
