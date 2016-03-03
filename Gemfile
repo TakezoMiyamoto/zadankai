@@ -47,5 +47,13 @@ group :development do
   gem 'spring'
   
   gem 'devise'
+  
+  gem 'carrierwave'
+  
+  gem 'mini_magick'
+  
+  gem 'fog'
+  
+  gem 'streamio-ffmpeg'
 end
 
