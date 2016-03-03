@@ -26,8 +26,24 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
   
+  def edit
+    
+  end
+  
+  def update
+    respond_to do |format|
+      if @project.update(article_params) && @project.video.recreate_versions!
+        format.html { redirect_to @project, notice: 'project was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
   private
   def project_params
-    params.require(:project).permit(:project_name, :category, :main_image)
+    params.require(:project).permit(:project_name, :category, :main_image, :movie)
   end
 end

@@ -54,5 +54,6 @@ group :development do
   
   gem 'fog'
   
+  gem 'streamio-ffmpeg'
 end
 
