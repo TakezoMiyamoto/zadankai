@@ -1,8 +1,4 @@
-<% @projects.each do |project| %>
-  <h2><%= project.project_name %></h2>
-  
-  <p><%= link_to image_tag(project.main_image.url), project %></p>
-    
-  
-</p>
-<% end %>
+<div class="container">
+    <%= render 'projects/list' , projects: @projects %>
+</div>
+
