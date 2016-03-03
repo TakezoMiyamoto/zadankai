@@ -15,8 +15,8 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.build(project_params)
     if @project.save
-      
-      redirect_to projects_path, notice: '新規プロジェクトを作成しました'
+      flash[:success] = "新規プロジェクトを作成しました"
+      redirect_to projects_path
     else
       render 'zadankai/home'
     end
