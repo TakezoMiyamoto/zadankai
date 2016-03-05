@@ -1,11 +1,10 @@
 class CommentsController < ApplicationController
     before_action :authenticate_user!, only: [:create]
     
-
-    
     def create 
         @project = Project.find(params[:project_id])
         @comment = @project.comments.build(comment_params)
+        @comment.commenter = current_user.nickname
         if @comment.save
           flash[:success] = "Comment created!"
           redirect_to projects_path
