@@ -1,6 +1,24 @@
-
-
-<p><%= @project.project_name %></p>
-<% if current_user == @project.user %>
-      <%= link_to "delete", @project, method: :delete, data: { confirm: "You sure?" } %>
-<% end %>
+<div class="container">
+  <div class="container-inner inner-sm clearfix">
+    <div class="item-single-main">
+      <div class="image">
+        <div class="img-wrap">
+          <% if @project.main_image.present? %>
+            <%= image_tag(@project.main_image) %>
+          <% else %>
+            <%= image_tag("no-image.png" , alt: @project.project_name) %>
+          <% end %>
+        </div>
+      </div>
+      <div class="title">
+        <%= @project.project_name %>
+      </div>
+    </div>
+  </div>
+  <div class="project-button">
+    <% if current_user == @project.user %>
+        <%= link_to "delete", @project, method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
+    <% end %>
+  </div>
+  
+</div>
