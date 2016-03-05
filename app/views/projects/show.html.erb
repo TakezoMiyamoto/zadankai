@@ -14,22 +14,14 @@
         <%= @project.project_name %>
       </div>
     </div>
+    <div class="item-single-side youtube-container">
+      <%= embed(@project.youtube_url) %>
+    </div>
   </div>
   <div class="project-button">
     <% if current_user == @project.user %>
         <%= link_to "delete", @project, method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
     <% end %>
   </div>
-  
-  <%= embed(@project.youtube_url) %>
-  
-  <%= link_to :movie, @project.movie_url.to_s, id: "movie" %>
-    <%= flowplayer_for :movie, '/flowplayer.swf' do |player| 
-      player.playlist [{:autoplay => true,
-                    :autoBuffering => true}]
-  player.onload do
-    'this.unmute();'
-  end
- end %>
   
 </div>

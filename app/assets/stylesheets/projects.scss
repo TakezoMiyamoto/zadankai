@@ -139,7 +139,7 @@
 }
 
 .item-single-side {
-  width: 380px;
+  width: 500px;
   float: right;
   .side-box {
     margin-bottom: 20px;
@@ -181,4 +181,19 @@
   display: block;
   width: 512px;
   height: 312px;
+}
+
+// youtube responsive
+.youtube-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.youtube-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 550px;
+  height: 400px;
 }
