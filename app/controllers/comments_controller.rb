@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
         @comment.commenter = current_user.nickname
         if @comment.save
           flash[:success] = "Comment created!"
-          redirect_to projects_path
+          redirect_to project_path(@project)
         else
           render 'zadankai/home'
         end

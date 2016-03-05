@@ -8,11 +8,11 @@ class ApplicationController < ActionController::Base
   protected
 
     def configure_permitted_parameters
-      # sign_inのときに、usernameも許可する
+      # sign_inのときに、nicknameも許可する
       devise_parameter_sanitizer.for(:sign_in) << :nickname
-      # sign_upのときに、usernameも許可する
+      # sign_upのときに、nicknameも許可する
       devise_parameter_sanitizer.for(:sign_up) << :nickname
-      #  account_updateのときに、usernameも許可する
+      #  account_updateのときに、nicknameも許可する
       devise_parameter_sanitizer.for(:account_update) << :nickname
     end
 end
