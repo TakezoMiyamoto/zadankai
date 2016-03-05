@@ -55,5 +55,7 @@ group :development do
   gem 'fog'
   
   gem 'streamio-ffmpeg'
+  
+  gem 'simple_form'
 end
 

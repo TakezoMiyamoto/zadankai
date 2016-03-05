@@ -1,1 +1,6 @@
+
+
 <p><%= @project.project_name %></p>
+<% if current_user == @project.user %>
+      <%= link_to "delete", @project, method: :delete, data: { confirm: "You sure?" } %>
+<% end %>

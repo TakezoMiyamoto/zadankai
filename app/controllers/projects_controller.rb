@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
   
   def readyfor
   end
@@ -40,6 +40,14 @@ class ProjectsController < ApplicationController
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def destroy
+    @project = current_user.projects.find_by(id: params[:id])
+    return redirect_to root_url if @project.nil?
+    @project.destroy
+    flash[:success] = "Project deleted"
+    redirect_to projects_path
   end
   
   private
