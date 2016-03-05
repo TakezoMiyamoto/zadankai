@@ -16,6 +16,9 @@
 
       <%= f.label :youtube_url %>
       <%= f.text_field :youtube_url, :placeholder => "https://www.youtube.com/watch?v=xxxxxxxxxxx" ,class: "form-control" %></br>
+      
+      <%= f.label :description, class: 'control-label' %>
+      <%= f.cktext_area :description, class: 'form-control' %></br>
       <%= f.submit "Create new project!", class: "btn btn-large btn-primary form-control" %>
       
     <% end %>

@@ -56,7 +56,8 @@ group :development do
   
   gem 'streamio-ffmpeg'
   
-  gem 'flowplayer', git: 'git://github.com/scottdavis/flowplayer-gem.git'
+  
+  gem 'ckeditor'
   
 end
 

@@ -18,6 +18,9 @@
       <%= embed(@project.youtube_url) %>
     </div>
   </div>
+  <div>
+    <%== @project.description %>
+  </div>
   <div class="project-button">
     <% if current_user == @project.user %>
         <%= link_to "delete", @project, method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
