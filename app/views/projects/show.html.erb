@@ -20,6 +20,9 @@
         <%= link_to "delete", @project, method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
     <% end %>
   </div>
+  
+  <%= embed(@project.youtube_url) %>
+  
   <%= link_to :movie, @project.movie_url.to_s, id: "movie" %>
     <%= flowplayer_for :movie, '/flowplayer.swf' do |player| 
       player.playlist [{:autoplay => true,

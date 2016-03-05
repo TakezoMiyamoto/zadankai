@@ -56,8 +56,6 @@ group :development do
   
   gem 'streamio-ffmpeg'
   
-  gem 'simple_form'
-  
   gem 'flowplayer', git: 'git://github.com/scottdavis/flowplayer-gem.git'
   
 end
