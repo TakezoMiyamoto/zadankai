@@ -30,6 +30,11 @@
     <section class="comment_form">
         <%= render 'shared/comment_form' %>
     </section>
-
+  <div>
+    <% @project.comments.each do |comment| %>
+      
+      <%= simple_format comment.body %>
+    <% end %>
+  </div>
   
 </div>

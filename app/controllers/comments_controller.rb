@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 
     
     def create 
-        @project = Project.find(params[:id])
+        @project = Project.find(params[:project_id])
         @comment = @project.comments.build(comment_params)
         if @comment.save
           flash[:success] = "Comment created!"
@@ -18,6 +18,6 @@ class CommentsController < ApplicationController
     private
     
     def comment_params
-        params.require(:comment).permit(:comment)
+        params.require(:comment).permit(:commenter, :body)
     end
 end
