@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update]
   
   def readyfor
   end
@@ -27,18 +27,16 @@ class ProjectsController < ApplicationController
   end
   
   def edit
-    
+    @project = Project.find(params[:id])
   end
   
   def update
-    respond_to do |format|
-      if @project.update(article_params) && @project.video.recreate_versions!
-        format.html { redirect_to @project, notice: 'project was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    @project = Project.find(params[:id])
+    if @project.update(edit_project_params)
+      flash[:success] = "Your project was updated!"
+      redirect_to @project
+    else
+      render 'edit'
     end
   end
 
@@ -52,6 +50,10 @@ class ProjectsController < ApplicationController
   
   private
   def project_params
+    params.require(:project).permit(:project_name, :category, :main_image, :movie, :youtube_url, :description)
+  end
+  
+  def edit_project_params
     params.require(:project).permit(:project_name, :category, :main_image, :movie, :youtube_url, :description)
   end
 end

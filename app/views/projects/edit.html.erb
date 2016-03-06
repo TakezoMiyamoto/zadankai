@@ -1,0 +1,27 @@
+<h1 style="text-align: center;">プロジェクト編集</h1>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@project) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+          <%= f.label :category %>
+          <%= f.select :category,
+                  ["ファッション","ダンス","演劇","テクノロジー"], { include_blank: '選択してください'} , class: "form-control" %></br>
+          
+          <%= f.label :project_name %>
+          <%= f.text_field :project_name, class: "form-control" %>
+    
+          <%= f.label :main_image %>
+          <%= f.file_field :main_image, class: "form-control" %>
+    
+          <%= f.label :youtube_url %>
+          <%= f.text_field :youtube_url, :placeholder => "https://www.youtube.com/watch?v=xxxxxxxxxxx" ,class: "form-control" %></br>
+          
+          <%= f.label :description, class: 'control-label' %>
+          <%= f.cktext_area :description, class: 'form-control' %></br>
+          <%= f.submit "Update the project!", class: "btn btn-large btn-primary form-control" %>
+          
+      <% end %>
+    </div>
+        
+</div>
