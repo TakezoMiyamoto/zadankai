@@ -21,6 +21,19 @@
   <div>
     <%== @project.description %>
   </div>
+  
+  <section class="comment_form">
+        <%= render 'shared/comment_form' %>
+    </section>
+    
+  <div>
+    <% if @project.comments.present? %>
+      <% @project.comments.each do |comment| %>
+        <%= comment.commenter %>
+        <%= simple_format comment.body %>
+      <% end %>
+    <% end %>
+  </div>
   <div class="project-button">
     <% if current_user == @project.user %>
         <%= link_to "プロジェクトを削除", @project, method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
