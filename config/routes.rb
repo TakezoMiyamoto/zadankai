@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
+  get 'users/show'
+
   mount Ckeditor::Engine => '/ckeditor'
   get 'projects/readyfor'
 
   get 'projects/new'
 
-  devise_for :users
+  devise_for :users, :controllers => {
+    :sessions      => "users/sessions",
+    :registrations => "users/registrations",
+    :passwords     => "users/passwords",
+  }
+  resources :users
+  
   root to: 'zadankai#home'
   resources :projects do
     resources :comments
