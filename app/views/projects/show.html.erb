@@ -1,44 +1,44 @@
 <div class="container">
-  <div class="container-inner inner-sm clearfix">
-    <div class="item-single-main">
-      <div class="image">
-        <div class="img-wrap">
-          <% if @project.main_image.present? %>
-            <%= image_tag(@project.main_image) %>
-          <% else %>
-            <%= image_tag("no-image.png" , alt: @project.project_name) %>
-          <% end %>
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <%  %>
+    </div>
+    <div class= "col-sm-8">
       <div class="title">
-        <%= @project.project_name %>
+        <h2><%= @project.project_name %></h2>
+      </div>
+      <div class= "youtube-container">
+        <%= embed(@project.youtube_url) %>
+      </div>
+      <div>
+        <h3>どんなプロジェクトなの？</h3>
+        <%== @project.description %>
+      </div>
+    
+      <section class="comment_form">
+          <%= render 'shared/comment_form' %>
+      </section>
+      
+      <div class="project-button">
+        <% if current_user == @project.user %>
+            <%= link_to "プロジェクトを削除", @project, method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
+            <%= link_to "プロジェクトの編集", edit_project_path(@project), class: "btn btn-large btn-danger" %></li>
+        <% end %>
+      </div>
+    </div>  
+    <div class="col-sm-2">
+      <div>
+        <% if @project.comments.present? %>
+        <h3>コメント一覧</h3>
+          <% @project.comments.each do |comment| %>
+            <%= comment.commenter %>
+            <%= simple_format comment.body %>
+          <% end %>
+        <% end %>
       </div>
     </div>
-    <div class="item-single-side youtube-container">
-      <%= embed(@project.youtube_url) %>
-    </div>
   </div>
-  <div>
-    <%== @project.description %>
-  </div>
-  
-  <section class="comment_form">
-        <%= render 'shared/comment_form' %>
-    </section>
-    
-  <div>
-    <% if @project.comments.present? %>
-      <% @project.comments.each do |comment| %>
-        <%= comment.commenter %>
-        <%= simple_format comment.body %>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="project-button">
-    <% if current_user == @project.user %>
-        <%= link_to "プロジェクトを削除", @project, method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
-        <%= link_to "プロジェクトの編集", edit_project_path(@project), class: "btn btn-large btn-danger" %></li>
-    <% end %>
-  </div>
-  
 </div>
+
+    
+  
