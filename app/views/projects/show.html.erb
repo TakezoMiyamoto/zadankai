@@ -23,8 +23,8 @@
   </div>
   <div class="project-button">
     <% if current_user == @project.user %>
-        <%= link_to "delete", @project, method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
-        <%= link_to "Settings", edit_project_path(@project), class: "btn btn-large btn-danger" %></li>
+        <%= link_to "プロジェクトを削除", @project, method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
+        <%= link_to "プロジェクトの編集", edit_project_path(@project), class: "btn btn-large btn-danger" %></li>
     <% end %>
   </div>
   
