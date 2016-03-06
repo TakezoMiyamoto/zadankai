@@ -1,8 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+html {
+  position: relative;
+  min-height: 100%;
+}
 
 body {
-    position: relative;
     padding-top: 70px;
     margin-bottom: 60px;
 }
