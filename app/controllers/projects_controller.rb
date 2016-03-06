@@ -50,10 +50,10 @@ class ProjectsController < ApplicationController
   
   private
   def project_params
-    params.require(:project).permit(:project_name, :category, :main_image, :movie, :youtube_url, :description)
+    params.require(:project).permit(:project_name, :category, :main_image, :movie, :youtube_url, :description, :avatar)
   end
   
   def edit_project_params
-    params.require(:project).permit(:project_name, :category, :main_image, :movie, :youtube_url, :description)
+    params.require(:project).permit(:project_name, :category, :main_image, :movie, :youtube_url, :description, avatar)
   end
 end
