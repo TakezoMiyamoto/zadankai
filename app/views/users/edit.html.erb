@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row form">
+    <div class="col-xs-4 col-xs-offset-4">
+      <h2>プロフィール編集</h2>
+    
+      <%= form_for(@user) do |f| %>
+        
+        <div class="field">
+          <%= f.label :nickname %> <em>(6 characters maximum)</em><br>
+          <%= f.text_field :nickname, autofocus: true, class: 'input form-control' %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :avatar, "プロフィール画像" %>
+          <%= f.file_field :avatar, class: "form-control" %>
+        </div>
+        
+      
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, class: 'input form-control' %>
+        </div>
+      
+        <div class="field">
+          <%= f.label :password %>
+          <% if @validatable %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off", class: 'input form-control' %>
+        </div>
+      
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'input form-control' %>
+        </div><br/>
+      
+        <div class="actions">
+          <%= f.submit "Update the profile", class: 'btn btn-primary withripple' %>
+        </div>
+      <% end %><br/>
+      <div>
+
+      </div>
+    </div>
+  </div>
+</div>
