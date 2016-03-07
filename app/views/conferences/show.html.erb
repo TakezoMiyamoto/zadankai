@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <%  %>
+    </div>
+    <div class= "col-sm-8">
+      <div class="title">
+        <h2><%= @conference.title %></h2>
+      </div>
+      <div>
+        <h3>内容</h3>
+        <%== @conference.description %>
+      </div>
+    
+      <div class="project-button">
+        <% if current_user == @conference.user %>
+            <%= link_to "この会議を削除", @conference, method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
+            <%= link_to "この会議の編集", edit_conference_path(@conferece), class: "btn btn-large btn-danger" %></li>
+            <%= link_to "座談会をする", project_conferences_path(@project), class: "btn btn-large btn-prime" %></li>
+        <% end %>
+      </div>
+    </div>  
+    <div class="col-sm-2">
+      <div>
+        <%  %>
+        
+      </div>
+    </div>
+  </div>
+</div>

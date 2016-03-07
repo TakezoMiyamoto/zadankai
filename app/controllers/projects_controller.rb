@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update, :destroy]
   
   def readyfor
   end
