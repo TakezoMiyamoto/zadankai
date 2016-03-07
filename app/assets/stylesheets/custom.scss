@@ -9,7 +9,10 @@ body {
     padding-top: 70px;
     margin-bottom: 51px;
     min-height: 2000px;
+    background-color: #F7F6F6;
 }
+
+
 #brand-logo {
     color:#FFCCFF;
 }
@@ -167,16 +170,18 @@ body {
 
 .jumbotron {
         margin-top: -20px;
-        height: 420px;
-        background-image: url(/images/brocklyn.jpg);
+        height: 630px;
+        background-image: url(/images/FunBandImage.jpg);
         background-size: cover;
         background-position: center 60%;
         background-repeat: no-repeat;
         
     h1 {
+        margin-top: 120px;
         color: #FFFAFA;
     }
     p {
+        margin-top: 40px;
        color: #FFFAFA; 
     }
     
@@ -187,8 +192,8 @@ body {
 
 @media (max-width: 767px){
    .jumbotron {
-    height: 410px;
-    background-image: image-url("brocklyn.jpg");
+    height: 550px;
+    background-image: url(/images/FunBandImage.jpg);
     background-size: cover;
    }
 }
