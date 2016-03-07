@@ -22,7 +22,12 @@
       <div class="project-button">
         <% if current_user == @project.user %>
             <%= link_to "プロジェクトを削除", @project, method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
+<<<<<<< HEAD
             <%= link_to "プロジェクトの編集", edit_project_path(@project), class: "btn btn-large btn-default" %></li>
+=======
+            <%= link_to "プロジェクトの編集", edit_project_path(@project), class: "btn btn-large btn-danger" %></li>
+            <%= link_to "座談会をする", project_conferences_path(@project), class: "btn btn-large btn-prime" %></li>
+>>>>>>> conference
         <% end %>
       </div>
     </div>  

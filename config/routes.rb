@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   root to: 'zadankai#home'
   resources :projects do
     resources :comments
+    resources :conferences
   end
   
 
