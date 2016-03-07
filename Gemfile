@@ -56,7 +56,6 @@ group :development do
   
   gem 'streamio-ffmpeg'
   
-  
   gem 'ckeditor'
   
 end

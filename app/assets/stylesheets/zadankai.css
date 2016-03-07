@@ -1,0 +1,9 @@
+@charset "UTF-8";
+.carousel {
+  width: 80%;
+  /*希望するサイズ*/
+  margin: auto; }
+  .carousel img {
+    width: 100%; }
+
+/*# sourceMappingURL=zadankai.css.map */
