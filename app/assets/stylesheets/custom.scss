@@ -7,7 +7,8 @@ html {
 
 body {
     padding-top: 70px;
-    margin-bottom: 60px;
+    margin-bottom: 51px;
+    min-height: 2000px;
 }
 #brand-logo {
     color:#FFCCFF;
@@ -162,4 +163,32 @@ body {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+.jumbotron {
+        margin-top: -18px;
+        height: 420px;
+        background-image: url(/images/brocklyn.jpg);
+        background-size: cover;
+        background-position: center 60%;
+        background-repeat: no-repeat;
+        
+    h1 {
+        color: #FFFAFA;
+    }
+    p {
+       color: #FFFAFA; 
+    }
+    
+    .btn {
+        margin-top: 70px;
+    }
+}
+
+@media (max-width: 767px){
+   .jumbotron {
+    height: 410px;
+    background-image: image-url("brocklyn.jpg");
+    background-size: cover;
+   }
 }

@@ -4,7 +4,7 @@
       <h2>プロフィール編集</h2>
     
       <%= form_for(@user) do |f| %>
-        
+        <%= render 'shared/error_messages', object: f.object %>
         <div class="field">
           <%= f.label :nickname %> <em>(6 characters maximum)</em><br>
           <%= f.text_field :nickname, autofocus: true, class: 'input form-control' %>

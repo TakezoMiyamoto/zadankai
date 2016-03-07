@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";AAGA,SAAS;EACP,KAAK,EAAC,GAAG;EAAG,WAAW;EACvB,MAAM,EAAC,IAAI;EACX,aAAI;IACA,KAAK,EAAC,IAAI",
+"sources": ["zadankai.scss"],
+"names": [],
+"file": "zadankai.css"
+}
