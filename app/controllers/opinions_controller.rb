@@ -6,6 +6,8 @@ class OpinionsController < ApplicationController
         @conference = Conference.find(params[:conference_id])
         @opinion = @conference.opinions.build(opinion_params)
         @opinion.opinion_user = current_user.nickname
+        @opinion.avatar = current_user.avatar.url
+        
         if @opinion.save
           flash[:success] = "Opinion created!"
           redirect_to project_conference_path(@project, @conference)
@@ -13,6 +15,8 @@ class OpinionsController < ApplicationController
           render 'zadankai/home'
         end
     end
+    
+    
     
     
     private
