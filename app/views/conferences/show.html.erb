@@ -28,6 +28,7 @@
         <% if @conference.opinions.present? %>
         <h3>コメント一覧</h3>
           <% @conference.opinions.order("created_at desc").each do |opinion| %>
+            <%= opinion.created_at.to_s(:default) %><br/>
             <%= opinion.opinion_user %>
             <%= simple_format opinion.body %>
           <% end %>
