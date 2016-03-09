@@ -18,7 +18,22 @@
       <section class="comment_form">
           <%= render 'shared/comment_form' %>
       </section>
+      <h3>コメント一覧</h3>
       
+        <% if @project.comments.present? %>
+        <% @project.comments.order("created_at desc").each do |comment| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= image_tag(comment.avatar , class: "icon_image", alt: comment.commenter) %>
+            <%= comment.commenter %>
+          </div>
+          <div class="panel-body">
+            <%= comment.created_at.to_s(:default) %><br/>
+            <%= simple_format comment.body %>
+          </div>
+        </div>
+       <% end %>
+       <% end %>
       <div class="project-button">
         <%= link_to "座談会をする", project_conferences_path(@project), class: "btn btn-large btn-prime" %></li>
         <% if current_user == @project.user %>
@@ -30,16 +45,7 @@
       </div>
     </div>  
     <div class="col-sm-2">
-      <div>
-        <% if @project.comments.present? %>
-        <h3>コメント一覧</h3>
-          <% @project.comments.order("created_at desc").each do |comment| %>
-            <%= comment.created_at.to_s(:default) %><br/>
-            <%= comment.commenter %>
-            <%= simple_format comment.body %>
-          <% end %>
-        <% end %>
-      </div>
+ 
     </div>
   </div>
 </div>
