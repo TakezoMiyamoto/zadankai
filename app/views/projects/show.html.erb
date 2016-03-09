@@ -20,10 +20,11 @@
       </section>
       
       <div class="project-button">
+        <%= link_to "座談会をする", project_conferences_path(@project), class: "btn btn-large btn-prime" %></li>
         <% if current_user == @project.user %>
             <%= link_to "プロジェクトを削除", @project, method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
             <%= link_to "プロジェクトの編集", edit_project_path(@project), class: "btn btn-large btn-default" %></li>
-            <%= link_to "座談会をする", project_conferences_path(@project), class: "btn btn-large btn-prime" %></li>
+            
 
         <% end %>
       </div>
@@ -32,7 +33,7 @@
       <div>
         <% if @project.comments.present? %>
         <h3>コメント一覧</h3>
-          <% @project.comments.each do |comment| %>
+          <% @project.comments.order("created_at desc").each do |comment| %>
             <%= comment.commenter %>
             <%= simple_format comment.body %>
           <% end %>

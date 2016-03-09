@@ -3,7 +3,7 @@ class OpinionsController < ApplicationController
     
     def create 
         @project = Project.find(params[:project_id])
-        @conference = Conference.find(params[:project_id])
+        @conference = Conference.find(params[:conference_id])
         @opinion = @conference.opinions.build(opinion_params)
         @opinion.opinion_user = current_user.nickname
         if @opinion.save
