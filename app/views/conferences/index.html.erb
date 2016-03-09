@@ -2,7 +2,6 @@
   <h1>座談会ズ</h1>
   <div>
     <% if @project.conferences.present? %>
-    <h3>コメント一覧</h3>
       <% @project.conferences.each do |conference| %>
         <%= link_to conference.title, project_conference_path(@project, conference) %>
       <% end %>
