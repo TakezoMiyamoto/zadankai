@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  conference_id: 
+  opinion_user: MyString
+  body: MyText
+
+two:
+  user_id: 
+  conference_id: 
+  opinion_user: MyString
+  body: MyText
