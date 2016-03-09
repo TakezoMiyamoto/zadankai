@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :projects
   has_many :comments
   has_many :conferences
+  has_many :opinions
   
   mount_uploader :avatar, AvatarUploader
 end
