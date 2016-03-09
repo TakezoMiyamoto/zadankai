@@ -28,6 +28,7 @@ class ConferencesController < ApplicationController
     end
   
     def edit
+        @conferences = Conference.all
         @project = Project.find(params[:project_id])
         @conference = Conference.find(params[:id])
     end
