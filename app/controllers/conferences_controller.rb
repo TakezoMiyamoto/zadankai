@@ -1,10 +1,10 @@
 class ConferencesController < ApplicationController
-    before_action :authenticate_user!, only: [:new, :create, :show, :destroy, :edit, :update, :destroy]
+    before_action :authenticate_user!, only: [:index, :new, :create, :show, :destroy, :edit, :update, :destroy]
     
     
     def index
         @project = Project.find(params[:project_id])
-        @conferences = Conference.all
+        redirect_to @project
     end
     
     def new
@@ -64,11 +64,5 @@ class ConferencesController < ApplicationController
         params.require(:conference).permit(:title, :description)
     end
     
-    # ログインしていない がない場合はproject ページにredirect
-    def redirect_home
-        @project = Project.find(params[:project_id])
-       if current_user.id == nil
-           redirect_to @project
-       end
-    end 
+   
 end

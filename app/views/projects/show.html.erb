@@ -34,15 +34,39 @@
        <% end %>
        <% end %>
       <div class="project-button">
-        <%= link_to "座談会にいく", project_conferences_path(@project), class: "btn btn-large btn-primary" %>
         <% if current_user == @project.user %>
             <%= link_to "プロジェクトを削除", @project, method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
             <%= link_to "プロジェクトの編集", edit_project_path(@project), class: "btn btn-large btn-default" %>
         <% end %>
       </div>
     </div>  
+    
     <div class="col-sm-2">
+      <% if current_user == @project.user %>
+      <div>
+          <%= link_to "座談会を開催する！" , new_project_conference_path(@project),class: "btn btn-large btn-primary" %>
+      </div><br/>
+      <% end %>
+      
+      <% if current_user != nil %>
+        <%= link_to "座談会にいく", project_conferences_path(@project), class: "btn btn-large btn-info" %><br/>
+      <h4>開かれてる座談会</h4>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <% if @project.conferences.present? %>
+            <% @project.conferences.order("created_at desc").each do |conference| %>
+              <p><%= conference.created_at.to_s(:default) %></p>
+        </div>
+        <div class="panel-body">
+              <p><%= link_to conference.title, project_conference_path(@project, conference) %></p>
+        </div>
+      </div>
+            <% end %>
+          <% else %>
+            <p>現在ひらかれている座談会はありません</p>
+          <% end %>
  
+     <% end %>
     </div>
   </div>
 </div>
