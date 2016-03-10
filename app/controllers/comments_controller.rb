@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    before_action :authenticate_user!, only: [:create]
+    before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update, :destroy]
     
     def create
         @project = Project.find(params[:project_id])
