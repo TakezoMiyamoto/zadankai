@@ -1,8 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-2">
+      <% if @project.user != nil %>
       <h3><%= @project.user.nickname  %></h3>
       <%= image_tag(@project.user.avatar.url , alt: @project.user.nickname) %>
+      <% end %>
     </div>
     <div class= "col-sm-7">
       <div class="title">
