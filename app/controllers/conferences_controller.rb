@@ -1,10 +1,10 @@
 class ConferencesController < ApplicationController
-    before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update, :destroy]
-    before_action :redirect_home, only: [:show, :create, :destroy, :edit, :update]
+    before_action :authenticate_user!, only: [:index, :new, :create, :show, :destroy, :edit, :update, :destroy]
+    
     
     def index
         @project = Project.find(params[:project_id])
-        @conferences = Conference.all
+        redirect_to @project
     end
     
     def new
@@ -64,10 +64,5 @@ class ConferencesController < ApplicationController
         params.require(:conference).permit(:title, :description)
     end
     
-    def redirect_home
-        @project = Project.find(params[:project_id])
-       if @conference == nil
-           redirect_to @project
-       end
-    end 
+   
 end
