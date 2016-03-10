@@ -33,9 +33,9 @@
       
       <div class="project-button">
         <% if current_user == @conference.user %>
+            <%= link_to "座談会にいく", project_conferences_path(@project, @conferece), class: "btn btn-large btn-primary" %>
             <%= link_to "この会議を削除", project_conferences_path(@project, @conferece), method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
             <%= link_to "この会議の編集", edit_project_conference_path(@conferece), class: "btn btn-large btn-danger" %>
-            <%= link_to "座談会をする", project_conferences_path(@project, @conferece), class: "btn btn-large btn-primary" %>
         <% end %>
       </div>
       

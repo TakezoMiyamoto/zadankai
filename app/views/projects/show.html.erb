@@ -34,7 +34,7 @@
        <% end %>
        <% end %>
       <div class="project-button">
-        <%= link_to "座談会をする", project_conferences_path(@project), class: "btn btn-large btn-primary" %>
+        <%= link_to "座談会にいく", project_conferences_path(@project), class: "btn btn-large btn-primary" %>
         <% if current_user == @project.user %>
             <%= link_to "プロジェクトを削除", @project, method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
             <%= link_to "プロジェクトの編集", edit_project_path(@project), class: "btn btn-large btn-default" %>
