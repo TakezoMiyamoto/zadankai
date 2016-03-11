@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
                                      dependent:   :destroy
   has_many :joined_projects, through: :joining_relationships, source: :joined_project
   
+  
   mount_uploader :avatar, AvatarUploader
   
   # relationships methods
@@ -32,6 +33,7 @@ class User < ActiveRecord::Base
   def joining?(project)
     joined_projects.include?(project)
   end
+ 
   
   
 end

@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Zadankai
   class Application < Rails::Application
+    config.action_view.embed_authenticity_token_in_remote_forms = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -23,6 +24,8 @@ module Zadankai
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    
+    
     config.active_record.default_timezone = :local
     config.web_console.whitelisted_ips = '113.149.161.132'
   end

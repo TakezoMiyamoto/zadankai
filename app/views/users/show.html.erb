@@ -1,4 +1,5 @@
 <div class="container">
     <h2><%= @user.nickname %></h1>
     <p><%= link_to image_tag(@user.avatar.url , alt: @user.nickname), user_path(@user) %></p>
+    
 </div>

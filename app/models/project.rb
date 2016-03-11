@@ -13,4 +13,6 @@ class Project < ActiveRecord::Base
   mount_uploader :main_image, ImageUploader
   mount_uploader :movie, MovieUploader
 
+  
+  
 end

@@ -9,7 +9,7 @@
     <div class= "col-sm-7">
       <div class="title">
         <h2><%= @project.project_name %></h2>
-        <%= render 'join_form' if logged_in? %>
+        <%= render 'join_form' %>
       </div>
       <div class= "youtube-container">
         <%= embed(@project.youtube_url) %>
