@@ -6,7 +6,7 @@ class CreateRelationships < ActiveRecord::Migration
 
       t.timestamps null: false
       
-      t.index [:joiner_user_id, :joined_project_id], unique: true
+      
     end
   end
 end
