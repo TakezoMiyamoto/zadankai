@@ -8,5 +8,11 @@ class User < ActiveRecord::Base
   has_many :conferences
   has_many :opinions
   
+  #relationships
+  has_many :joining_relationships, class_name:  "Relationship",
+                                     foreign_key: "joiner_user_id",
+                                     dependent:   :destroy
+  has_many :joined_projects, through: :joining_relationships, source: :joined_project
+  
   mount_uploader :avatar, AvatarUploader
 end
