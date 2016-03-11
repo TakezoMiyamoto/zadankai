@@ -8,8 +8,10 @@
     </div>
     <div class= "col-sm-7">
       <div class="title">
-        <h2><%= @project.project_name %></h2>
+        <% if current_user != nil %>
         <%= render 'users/join_form' %>
+        <% end %>
+        <h2><%= @project.project_name %></h2>
       </div>
       <div class= "youtube-container">
         <%= embed(@project.youtube_url) %>
@@ -46,10 +48,12 @@
     </div>  
     
     <div class="col-sm-3">
-      <% if current_user == @project.user %>
+      <% if current_user == @project.user && current_user != nil %>
       <div>
           <%= link_to "座談会を開催する！" , new_project_conference_path(@project),class: "btn btn-large btn-primary" %>
       </div><br/>
+      <% else %>
+        <%  %>
       <% end %>
       
       <% if current_user != nil %>
