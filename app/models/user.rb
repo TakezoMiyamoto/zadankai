@@ -15,4 +15,23 @@ class User < ActiveRecord::Base
   has_many :joined_projects, through: :joining_relationships, source: :joined_project
   
   mount_uploader :avatar, AvatarUploader
+  
+  # relationships methods
+  # プロジェクトにジョインする
+  def join(project)
+    joining_relationships.find_or_create_by(joined_project_id: project.id)
+  end
+
+  # ジョインしているプロジェクトをアンジョインする
+  def unjoin(project)
+    joining_relationship = joining_relationships.find_by(joined_project_id: project.id)
+    joining_relationship.destroy if joining_relationship
+  end
+
+  # あるプロジェクトにジョインしているかどうか？
+  def joining?(project)
+    joined_projects.include?(project)
+  end
+  
+  
 end
