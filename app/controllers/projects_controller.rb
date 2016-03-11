@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   
   def readyfor
   end
@@ -47,6 +47,8 @@ class ProjectsController < ApplicationController
     flash[:success] = "Project deleted"
     redirect_to projects_path
   end
+  
+  
   
   private
   def project_params
