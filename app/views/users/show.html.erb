@@ -5,8 +5,18 @@
 </div><br/>
 <div class="container user-profile-projects">
     <h4>自分のプロジェクト</h4>
+    <% if @projects.any? %>
     <%= render 'projects/list' , projects: @projects %>
+    <% else %>
+    <p>現在、自分のプロジェクトはありません。</p>
+    <% end %>
+    
+    
     <h4>参加しているプロジェクト</h4>
+    <% if @joinProjects.any? %>
     <%= render 'projects/list', projects: @joinProjects %>
+    <% else %>
+    <p>現在、参加しているプロジェクトはありません。</p>
+    <% end %>
     
 </div>
