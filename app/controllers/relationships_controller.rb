@@ -4,7 +4,7 @@ class RelationshipsController < ApplicationController
   def show
     @user = User.find(params[:joiner_user_id])
     @project = Project.find(params[:joined_project_id])
-    @projects = @user.projects.group('joined_projects.id')
+    
   end
     
   def create
