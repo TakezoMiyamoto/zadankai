@@ -24,6 +24,12 @@ class ProjectsController < ApplicationController
   
   def show
     @project = Project.find(params[:id])
+    # 参加しているユーザー
+    @users = @project.joiner_users.group('joiner_user_id')
+    # 参加しているユーザーがいる場合はそのUserを取得
+    if @users.any?
+    @joinerUser = @project.joiner_users.find(@users)
+    end
   end
   
   def edit
