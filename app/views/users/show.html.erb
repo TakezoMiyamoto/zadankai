@@ -1,6 +1,9 @@
 <div class="container">
     <h2><%= @user.nickname %></h1>
     <p><%= link_to image_tag(@user.avatar.url , alt: @user.nickname), user_path(@user) %></p>
-    <h4>自分のプロジェクト一覧</h4>
+    <h4 style="text-align: center;">自分のプロジェクト</h4>
     <%= render 'projects/list' , projects: @projects %>
+    <h4 style="text-align: center;">参加しているプロジェクト</h4>
+    <%= render 'projects/list', projects: @joinProjects %>
+    
 </div>

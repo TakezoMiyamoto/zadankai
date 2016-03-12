@@ -7,8 +7,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    # 自分のプロジェクト一覧
     @projects = @user.projects.group('projects.id')
-    
+    # 参加中のプロジェクト一覧
+    @joinProjects = @user.joined_projects.group('projects.id')
   end
   
   def edit
