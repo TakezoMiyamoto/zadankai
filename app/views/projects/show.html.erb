@@ -62,43 +62,15 @@
         <%  %>
       <% end %>
       
-      <% if current_user != nil && current_user == @joinerUser %>
-      <h4>開かれてる座談会</h4>
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <% if @project.conferences.present? %>
-            <h5>この座談会にいく！</h5>
-        </div>
-        <div class="panel-body">
-            <% @project.conferences.order("created_at desc").each do |conference| %>
-              <p><%= conference.created_at.to_s(:default) %></p>
-              <p><%= link_to conference.title, project_conference_path(@project, conference) %></p>
-        </div>
-      </div>
-            <% end %>
-          <% else %>
-            <p>現在ひらかれている座談会はありません</p>
-          <% end %>
-     <% elsif current_user == @project.user %>
-       <h4>開かれてる座談会</h4>
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <% if @project.conferences.present? %>
-            <h5>この座談会にいく！</h5>
-        </div>
-        <div class="panel-body">
-            <% @project.conferences.order("created_at desc").each do |conference| %>
-              <p><%= conference.created_at.to_s(:default) %></p>
-              <p><%= link_to conference.title, project_conference_path(@project, conference) %></p>
-        </div>
-      </div>
-            <% end %>
-          <% else %>
-            <p>現在ひらかれている座談会はありません</p>
-          <% end %>
-     <% else %>
+      <% if current_user == @joinerUser %>
+        <%= render 'conference_list' %>
+      <% elsif current_user == @project.user %>
+        <%= render 'conference_list' %>
+      <% elsif current_user != nil %>
+        <%= render 'conference_list' %>
+      <% else %>
        <p>例外です</p>
-     <% end %>
+      <% end %>
     </div>
   </div>
 </div>
