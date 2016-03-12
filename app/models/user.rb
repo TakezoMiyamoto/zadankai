@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   # あるプロジェクトにジョインしているかどうか？
   def joining?(project)
     joined_projects.include?(project)
+  
   end
  
   

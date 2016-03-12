@@ -1,6 +1,11 @@
 class RelationshipsController < ApplicationController
-    before_action :authenticate_user!, only: [:create, :destroy]
+    before_action :authenticate_user!, only: [:show, :create, :destroy]
     
+  def show
+    @user = User.find(params[:joiner_user_id])
+    @project = Project.find(params[:joined_project_id])
+    
+  end
     
   def create
     @project = Project.find(params[:joined_project_id])
