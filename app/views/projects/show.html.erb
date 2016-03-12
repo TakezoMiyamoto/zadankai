@@ -22,7 +22,6 @@
         <h3>どんなプロジェクトなの？</h3>
         <%== @project.description %>
       </div>
-    
       <section class="comment_form">
           <%= render 'shared/comment_form' %>
       </section>
@@ -51,7 +50,10 @@
     
     <div class="col-sm-3">
       <% if @users.any? %>
-      
+        <% @users.each do |user| %>
+          <%= user.nickname %>
+          <%= image_tag(user.avatar , class: "icon_image", alt: user.nickname) %>
+        <% end %>
       <% end %>
       
       <% if current_user == @project.user && current_user != nil %>
@@ -62,14 +64,12 @@
         <%  %>
       <% end %>
       
-      <% if current_user != nil && current_user == @joinerUser %>
-        <%= render 'conference_list' %>
-      <% elsif current_user == @project.user %>
-        <%= render 'conference_list' %>
-      <% elsif current_user != nil && current_user != @joinerUser %>
-        <%= render 'conference_list' %>
-      <% else %>
-       <% #例外  %>
+      <% if current_user != nil %>
+          <% if @joinerUser.include?  current_user %>
+            <%= render 'conference_list' %>
+          <% else %>
+            <% # %>
+          <% end %>
       <% end %>
     </div>
   </div>
