@@ -67,6 +67,8 @@
       <% if current_user != nil %>
           <% if @joinerUser.include?  current_user %>
             <%= render 'conference_list' %>
+          <% elsif current_user == @project.user %>
+            <%= render 'conference_list' %>
           <% else %>
             <% # %>
           <% end %>
