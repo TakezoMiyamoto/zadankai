@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :users
   
   root to: 'zadankai#home'
+  
   resources :projects do
     resources :comments
     resources :conferences do
@@ -25,6 +26,18 @@ Rails.application.routes.draw do
   
   resources :relationships, only: [:create, :destroy]
 
+  resources :projects do
+    member do
+      get :joined_projects
+    end
+  end
+  
+  resources :users do
+    member do
+      get :joiner_user
+    end
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
