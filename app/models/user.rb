@@ -21,12 +21,16 @@ class User < ActiveRecord::Base
   # プロジェクトにジョインする
   def join(project)
     joining_relationships.find_or_create_by(joined_project_id: project.id)
+    
+    
   end
 
   # ジョインしているプロジェクトをアンジョインする
   def unjoin(project)
     joining_relationship = joining_relationships.find_by(joined_project_id: project.id)
     joining_relationship.destroy if joining_relationship
+    
+    
   end
 
   # あるプロジェクトにジョインしているかどうか？
