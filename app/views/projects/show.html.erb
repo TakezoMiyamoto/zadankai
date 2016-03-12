@@ -62,14 +62,14 @@
         <%  %>
       <% end %>
       
-      <% if current_user == @joinerUser %>
+      <% if current_user != nil && current_user == @joinerUser %>
         <%= render 'conference_list' %>
       <% elsif current_user == @project.user %>
         <%= render 'conference_list' %>
-      <% elsif current_user != nil %>
+      <% elsif current_user != nil && current_user != @joinerUser %>
         <%= render 'conference_list' %>
       <% else %>
-       <p>例外です</p>
+       <% #例外  %>
       <% end %>
     </div>
   </div>
