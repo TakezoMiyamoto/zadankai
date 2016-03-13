@@ -7,6 +7,7 @@ class OpinionsController < ApplicationController
         @opinion = @conference.opinions.build(opinion_params)
         @opinion.opinion_user = current_user.nickname
         @opinion.avatar = current_user.avatar.url
+        @opinion.remote_avatar = current_user.remote_avatar
         
         if @opinion.save
           flash[:success] = "Opinion created!"

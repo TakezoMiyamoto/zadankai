@@ -21,8 +21,13 @@
         <p><%= opinion.created_at.to_s(:default) %></p>
       <div class="panel panel-default">
         <div class="panel-heading">
-            <%= image_tag(opinion.avatar , class: "icon_image", alt: opinion.opinion_user) %>
-            <p><%= opinion.opinion_user %></p>
+          <% if opinion.remote_avatar != nil %>
+              <%= image_tag(opinion.remote_avatar , class: "icon_image" , alt: opinion.opinion_user) %>
+          <% else %>
+              <%= image_tag(opinion.avatar , class: "icon_image", alt: opinion.opinion_user) %>
+          <% end %>
+          
+          <%= opinion.opinion_user %>
         </div>
         <div class="panel-body">
             <p><%= simple_format opinion.body %></p>

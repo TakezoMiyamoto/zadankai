@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160313090647) do
+ActiveRecord::Schema.define(version: 20160313142147) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20160313090647) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "avatar"
+    t.string   "remote_avatar"
   end
 
   add_index "opinions", ["conference_id", "created_at"], name: "index_opinions_on_conference_id_and_created_at"
