@@ -39,6 +39,7 @@
         </div>
       <% end %><br/>
       <div>
+        <%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %>
         <%= render "devise/shared/links" %>
       </div>
     </div>

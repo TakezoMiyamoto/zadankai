@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
   
 gem 'carrierwave'
   
