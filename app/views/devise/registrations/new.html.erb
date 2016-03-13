@@ -2,7 +2,10 @@
   <div class="row form">
     <div class="col-xs-4 col-xs-offset-4">
       <h2>Sign up</h2>
-    
+      <%= link_to user_omniauth_authorize_path(:facebook), class: "btn btn-block btn-social btn-facebook" do %>
+        <span class='fa fa-facebook'></span>Sign in with Facebook
+      <% end %><br/>
+      <h4 style="text-align: center;">or</h4>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         <div class="field">
