@@ -56,7 +56,11 @@
       <% if @users.any? %>
         <% @users.each do |user| %>
           <%= user.nickname %>
-          <%= image_tag(user.avatar , class: "icon_image", alt: user.nickname) %>
+          <% if user.remote_avatar != nil %>
+            <p><%= image_tag(user.remote_avatar, class: "icon_image" , alt: user.nickname) %></p>
+          <% else %>
+            <p><%= image_tag(user.avatar , class: "icon_image", alt: user.nickname) %></p>
+          <% end %>
         <% end %>
       <% end %>
       
