@@ -46,7 +46,9 @@ class User < ActiveRecord::Base
       user = User.create(
         uid:      auth.uid,
         provider: auth.provider,
-        email:    User.dummy_email(auth),
+        nickname: auth.info.name,
+        email: auth.info.email,
+        remote_avatar: auth.info.image,
         password: Devise.friendly_token[0, 20]
       )
     end
@@ -54,12 +56,7 @@ class User < ActiveRecord::Base
     user
   end
   
-  private
-
-  def self.dummy_email(auth)
-    "#{auth.uid}-#{auth.provider}@example.com"
-  end
- 
+  
   
   
 end
