@@ -7,6 +7,8 @@ class CommentsController < ApplicationController
         @comment.commenter = current_user.nickname
         @comment.avatar = current_user.avatar.url
         
+        
+        
         if @comment.save
           flash[:success] = "Comment created!"
           redirect_to project_path(@project)
@@ -19,6 +21,6 @@ class CommentsController < ApplicationController
     private
     
     def comment_params
-        params.require(:comment).permit(:commenter, :body, :avatar)
+        params.require(:comment).permit(:commenter, :body, :avatar, :remote_avatar)
     end
 end
