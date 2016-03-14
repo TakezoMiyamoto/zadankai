@@ -3,6 +3,7 @@
 @import "font-awesome";
 @import url("//fonts.googleapis.com/css?family=Open+Sans:400,700");
 @import url("//fonts.googleapis.com/css?family=Pacifico:400,700");
+@import url("//fonts.googleapis.com/css?family=Poiret+One:400,700");
 
 html {
   position: relative;
@@ -184,13 +185,15 @@ body {
         background-repeat: no-repeat;
         
     h1 {
-        font-family: "Pacifico";
+        font-family: 'Poiret One', cursive;
+        font-weight: bold;
         margin-top: 20px;
         text-align: center;
         color: #F6A2BF;
     }
     p {
-        font-family: "Pacifico";
+        font-family: 'Poiret One', cursive;
+        font-weight: bold;
         margin-top: 40px;
         text-align: center;
         color: #F6A2BF; 
@@ -209,12 +212,14 @@ body {
     background-position: center 60%;
     background-repeat: no-repeat;
     h1 {
-        font-family: "Pacifico";
+        font-family: 'Poiret One', cursive;
+        font-weight: bold;
         margin-top: 120px;
         color: #F6A2BF;
     }
     p {
-        font-family: "Pacifico";
+        font-family: 'Poiret One', cursive;
+        font-weight: bold;
         margin-top: 40px;
         color: #F6A2BF; 
     }
