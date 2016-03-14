@@ -1,17 +1,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import url("//fonts.googleapis.com/css?family=Open+Sans:400,700");
+@import url("//fonts.googleapis.com/css?family=Pacifico:400,700");
 
 html {
   position: relative;
   min-height: 100%;
+  
 }
 
 body {
+    font-family: "Open Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
     padding-top: 70px;
     margin-bottom: 51px;
     min-height: 2000px;
     background-color: #F7F6F6;
+    font-size: 15px;
 }
 
 
@@ -179,11 +184,13 @@ body {
         background-repeat: no-repeat;
         
     h1 {
+        font-family: "Pacifico";
         margin-top: 20px;
         text-align: center;
         color: #F6A2BF;
     }
     p {
+        font-family: "Pacifico";
         margin-top: 40px;
         text-align: center;
         color: #F6A2BF; 
@@ -202,12 +209,14 @@ body {
     background-position: center 60%;
     background-repeat: no-repeat;
     h1 {
+        font-family: "Pacifico";
         margin-top: 120px;
         color: #F6A2BF;
     }
     p {
+        font-family: "Pacifico";
         margin-top: 40px;
-       color: #F6A2BF; 
+        color: #F6A2BF; 
     }
     
     .btn {
