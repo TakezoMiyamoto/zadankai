@@ -1,11 +1,11 @@
-<div class="container">
-    <h1>Projects#readyfor</h1>
-    <p>Find me in app/views/projects/readyfor.html.erb</p>
-    
-    <% if user_signed_in?  %>
-        <p><%= link_to "プロジェクトをはじめる", projects_new_path, class: "btn btn-large btn-primary" %></p>
-    <% else %>
-        <p><%= link_to "ログインする", new_user_session_path, class: "post btn btn-large btn-primary" %></p>
-    <% end %>
-</div>
-
+<div id="ready-for-jumbotron">
+    <div class="container">
+      <h1 style="text-align: center;">Zadankai</h1>
+      <p style="text-align: center;">ファンファンファン</p>
+      <% if user_signed_in?  %>
+        <p style="text-align: center;"><%= link_to "プロジェクトをはじめる", projects_new_path, class: "btn btn-large btn-primary" %></p>
+      <% else %>
+        <p style="text-align: center;"><%= link_to "ログインする", new_user_session_path, class: "post btn btn-large btn-primary" %></p>
+      <% end %>
+    </div><!-- /.container -->
+</div><!-- /.jumbotron -->
