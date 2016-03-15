@@ -1,25 +1,25 @@
-<h1 style="text-align: center;">Create New Project!!</h1>
+<h1 style="text-align: center;">プロジェクトを作成する</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3 "form-group"">
     <%= form_for(@project) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :category %>
+      <%= f.label :category, "カテゴリー" %>
       <%= f.select :category,
-              ["ファッション","ダンス","演劇","テクノロジー"], { include_blank: '選択してください'} , class: "form-control" %></br>
+              ["アート","写真","プロダクト","スポーツ","お笑い","ファッション","ダンス","演劇・舞台","映像・映画","本・漫画","旅行","ビジネス","テクノロジー","社会貢献","その他"], { include_blank: '選択してください'} , class: "form-control" %></br>
       
-      <%= f.label :project_name %>
-      <%= f.text_field :project_name, class: "form-control" %>
+      <%= f.label :project_name, "プロジェクト名" %>
+      <%= f.text_field :project_name, class: "form-control" %><br/>
 
-      <%= f.label :main_image %>
-      <%= f.file_field :main_image, class: "form-control" %>
+      <%= f.label :main_image, "メイン画像" %>
+      <%= f.file_field :main_image, class: "form-control" %><br/>
 
-      <%= f.label :youtube_url %>
+      <%= f.label :youtube_url, "Youtube動画 URL" %>
       <%= f.text_field :youtube_url, :placeholder => "https://www.youtube.com/watch?v=xxxxxxxxxxx" ,class: "form-control" %></br>
       
-      <%= f.label :description, class: 'control-label' %>
-      <%= f.cktext_area :description, class: 'form-control' %></br>
-      <%= f.submit "Create new project!", class: "btn btn-large btn-primary form-control" %>
+      <%= f.label :description, "プロジェクト詳細",  class: 'control-label' %>
+      <%= f.cktext_area :description, class: 'form-control' %><br/>
+      <%= f.submit "プロジェクトを投稿する！", class: "btn btn-large btn-primary form-control" %>
       
     <% end %>
   </div>
