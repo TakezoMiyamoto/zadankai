@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'zadankai#home'
+  get 'zadankai/about'
   get 'users/index'
 
   get 'users/show'
@@ -15,10 +17,7 @@ Rails.application.routes.draw do
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
   
-
   resources :users
-  
-  root to: 'zadankai#home'
   
   resources :projects do
     resources :comments
