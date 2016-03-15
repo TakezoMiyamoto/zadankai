@@ -36,7 +36,12 @@
             <% else %>
               <%= image_tag(comment.avatar , class: "icon_image", alt: comment.commenter) %>
             <% end %>
-            <p><%= comment.commenter %></p>
+            <%= comment.commenter %>
+            
+            <% if current_user.nickname == comment.commenter%>
+              <%= link_to "編集", edit_project_comment_path(@project, comment), class: "btn btn-large btn-default" %>
+              <%= link_to "削除", project_comment_path(@project, comment), method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
+            <% end %>
           </div>
           <div class="panel-body">
             <p><%= simple_format comment.body %></p>
