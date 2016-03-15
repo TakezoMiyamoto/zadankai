@@ -17,10 +17,38 @@ class CommentsController < ApplicationController
         end
     end
     
+    def edit
+        @project = Project.find(params[:project_id])
+        @comment = @project.comments.find(params[:id])
+    end
+    
+    def update
+        @project = Project.find(params[:project_id])
+        @comment = @project.comments.find(params[:id])
+      if @comment.update(edit_comment_params)
+        flash[:success] = "Your comment was updated!"
+        redirect_to @project
+      else
+        render 'edit'
+      end 
+    end
+    
+    def destroy
+        @project = Project.find(params[:project_id])
+        @comment = @project.comments.find_by(id: params[:id])
+            return redirect_to root_url if @comment.nil?
+        @comment.destroy
+        flash[:success] = "Comment deleted"
+        redirect_to @project
+    end
     
     private
     
     def comment_params
+        params.require(:comment).permit(:commenter, :body, :avatar, :remote_avatar)
+    end
+    
+    def edit_comment_params
         params.require(:comment).permit(:commenter, :body, :avatar, :remote_avatar)
     end
 end
