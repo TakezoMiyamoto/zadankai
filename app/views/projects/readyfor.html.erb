@@ -25,7 +25,12 @@
       <h4>4. プロジェクト完了報告！</h4>
     </div>
   </div>
-  <p><%= link_to "プロジェクトをはじめる", projects_new_path, class: "btn btn-large btn-primary" %></p>
+  <% if user_signed_in?  %>
+    <p><%= link_to "プロジェクトを作成する", projects_new_path, class: "btn btn-large btn-primary" %></p>
+  <% else %>
+    <p><%= link_to "まずは新規会員登録する", new_user_registration_path, class: "post btn btn-large btn-primary" %></p>
+  <% end %>
+ 
 </div>
 <div id="about" class="container">
   
