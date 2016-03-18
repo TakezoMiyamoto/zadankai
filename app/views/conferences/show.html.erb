@@ -28,9 +28,11 @@
           <% end %>
           
           <%= opinion.opinion_user %>
-          <% if current_user.nickname == opinion.opinion_user%>
-              <%= link_to "編集", edit_project_conference_opinion_path(@project, @conference, opinion), class: "btn btn-large btn-default" %>
-              <%= link_to "削除", project_conference_opinion_path(@project, @conference, opinion), method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
+          <% if current_user != nil %>
+            <% if current_user.nickname == opinion.opinion_user%>
+                <%= link_to "編集", edit_project_conference_opinion_path(@project, @conference, opinion), class: "btn btn-large btn-default" %>
+                <%= link_to "削除", project_conference_opinion_path(@project, @conference, opinion), method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
+            <% end %>
           <% end %>
         </div>
         <div class="panel-body">
