@@ -57,11 +57,11 @@ class ConferencesController < ApplicationController
     private
     
     def conference_params
-        params.require(:conference).permit(:title, :description)
+        params.require(:conference).permit(:title, :description, :youtube_url)
     end
     
     def edit_conference_params
-        params.require(:conference).permit(:title, :description)
+        params.require(:conference).permit(:title, :description, :youtube_url)
     end
     
    
