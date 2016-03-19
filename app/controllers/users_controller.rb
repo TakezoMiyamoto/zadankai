@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     
     # 自分のプロジェクト一覧
     @projects = @user.projects.group('projects.id')
+    @projectsCount = @projects.count
     # 参加中のプロジェクト一覧
     @joinProjects = @user.joined_projects.group('projects.id')
   end

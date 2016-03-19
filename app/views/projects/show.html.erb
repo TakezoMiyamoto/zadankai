@@ -3,7 +3,11 @@
     <div class="col-sm-2">
       <% if @project.user != nil %>
       <h3><%= @project.user.nickname  %></h3>
-      <%= image_tag(@project.user.avatar.url , alt: @project.user.nickname) %>
+        <% if @project.user.remote_avatar != nil %>
+          <%= image_tag(@project.user.remote_avatar , alt: @project.user.nickname) %>
+        <% else %>
+          <%= image_tag(@project.user.avatar.url , alt: @project.user.nickname) %>
+        <% end %>
       <% end %>
     </div>
     <div class= "col-sm-7">
@@ -79,8 +83,10 @@
       <% end %>
       
       <% if current_user != nil %>
+        <% if @joinerUser != nil %>
           <% if @joinerUser.include?  current_user %>
             <%= render 'conference_list' %>
+          <% end %>
           <% elsif current_user == @project.user %>
             <%= render 'conference_list' %>
           <% else %>
