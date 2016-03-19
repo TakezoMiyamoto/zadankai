@@ -7,8 +7,8 @@
             <% else %>
                 <p><%= link_to image_tag(@user.avatar.url , alt: @user.nickname), user_path(@user) %></p>
             <% end %>
-            <p>自分のプロジェクト  <%= @joinProjects.length %>個</p>
-            <p>参加しているプロジェクト  <%= @projects.length %>個</p>
+            <p>自分のプロジェクト  <%= @projects.length %>個</p>
+            <p>参加しているプロジェクト  <%= @joinProjects.length %>個</p>
             
         </div>
         <div class="col-md-9 user-profile-projects">
