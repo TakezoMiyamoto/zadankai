@@ -14,7 +14,7 @@
         <div class="col-md-9 user-profile-projects">
             <h4>自分のプロジェクト</h4>
             <% if @projects.any? %>
-            <%= render 'projects/list' , projects: @projects %>
+            <%= render 'projects/list_users' , projects: @projects %>
             <% else %>
             <p>現在、自分のプロジェクトはありません。</p>
             <% end %>
@@ -22,7 +22,7 @@
             
             <h4>参加しているプロジェクト</h4>
             <% if @joinProjects.any? %>
-            <%= render 'projects/list', projects: @joinProjects %>
+            <%= render 'projects/list_users', projects: @joinProjects %>
             <% else %>
             <p>現在、参加しているプロジェクトはありません。</p>
             <% end %>
