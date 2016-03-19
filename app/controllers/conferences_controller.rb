@@ -25,8 +25,17 @@ class ConferencesController < ApplicationController
     end
     
     def show
-        @project = Project.find(params[:project_id])
-        @conference = Conference.find(params[:id])
+        if Project.find_by(:id => params[:project_id]) == nil
+            redirect_to root_url
+        else
+            @project = Project.find_by(:id => params[:project_id])
+        end 
+        
+        if @conference = Conference.find_by(:id => params[:id]) == nil
+            redirect_to @project
+        else
+            @conference = Conference.find(params[:id])
+        end
     end
   
     def edit
