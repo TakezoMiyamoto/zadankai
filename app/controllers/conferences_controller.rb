@@ -1,6 +1,6 @@
 class ConferencesController < ApplicationController
     before_action :authenticate_user!, only: [:index, :new, :create, :show, :destroy, :edit, :update, :destroy]
-    
+    before_action :conference_owner, only: [:edit, :update, :destroy]
     
     def index
         @project = Project.find(params[:project_id])
@@ -41,7 +41,12 @@ class ConferencesController < ApplicationController
     def edit
         @conferences = Conference.all
         @project = Project.find(params[:project_id])
-        @conference = Conference.find(params[:id])
+        
+        if @conference = Conference.find_by(params[:id]) == nil
+            redirect_to @project
+        else
+            @conference = Conference.find_by(params[:id])
+        end
     end
     
     def update
@@ -73,5 +78,14 @@ class ConferencesController < ApplicationController
         params.require(:conference).permit(:title, :description, :youtube_url)
     end
     
+    def conference_owner
+        @project = Project.find(params[:project_id])
+        @conference = Conference.find(params[:id])
+        
+        unless @project.user_id == current_user.id
+          flash[:notice] = 'Access denied as you are not owner of this project'
+          redirect_to projects_path
+        end
+    end
    
 end
