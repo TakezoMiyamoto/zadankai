@@ -19,9 +19,11 @@
         
         <h2><%= @project.project_name %></h2>
       </div>
+      <% if @project.youtube_url.present? %>
       <div class= "youtube-container">
         <%= embed(@project.youtube_url) %>
       </div>
+      <% end %>
       <div>
         <h3>どんなプロジェクトなの？</h3>
         <%== @project.description %>
