@@ -4,22 +4,21 @@
 
 .user-profile {
     background-color: white;
-    border: solid;
+    
     
     img {
-        width: 150px;
-        height: 150px;
+        
+        width: 50px;
+        height: 50px;
         border-radius: 50px;
-        -webkit-border-radius: 40px;
-        -moz-border-radius: 40px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
     }
     
     h1 {
         text-align: center;
     }
-    h4 {
-        text-align: center;
-    }
+    
 }
 
 .user-profile-projects {
