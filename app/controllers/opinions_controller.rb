@@ -13,7 +13,7 @@ class OpinionsController < ApplicationController
           flash[:success] = "Opinion created!"
           redirect_to project_conference_path(@project, @conference)
         else
-          render 'zadankai/home'
+          redirect_to project_conference_path(@project, @conference)
         end
     end
     
