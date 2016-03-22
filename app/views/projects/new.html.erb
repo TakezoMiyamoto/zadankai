@@ -6,10 +6,10 @@
     <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :category, "カテゴリー" %>
       <%= f.select :category,
-              ["アート","写真","プロダクト","スポーツ","お笑い","ファッション","ダンス","演劇・舞台","映像・映画","本・漫画","旅行","ビジネス","テクノロジー","社会貢献","その他"], { include_blank: '選択してください'} , class: "form-control" %></br>
+              ["レディース","メンズ","キッズ","デニム","小物","財布","雑貨","時計","アンダーウェア","アクセサリー","帽子","コスメ","水着","着物/浴衣","マタニティー/ベビー","その他"], { include_blank: '選択してください'} , class: "form-control" %></br>
       
       <%= f.label :project_name, "プロジェクト名" %>
-      <%= f.text_field :project_name, class: "form-control" %><br/>
+      <%= f.text_field :project_name, :placeholder => "(例) 新感覚デニムを一からつくる！" , class: "form-control" %><br/>
 
       <%= f.label :main_image, "メイン画像" %>
       <%= f.file_field :main_image, class: "form-control" %><br/>
