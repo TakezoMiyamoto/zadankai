@@ -37,6 +37,9 @@
           <%= render 'shared/comment_form' %>
       </section>
       <h3>コメント一覧</h3>
+      <% if @project.comments.count == 0 %>
+        <p>現在コメントはありません。</p>
+      <% end %>
         <% if @project.comments.present? %>
         <% @project.comments.order("created_at desc").each do |comment| %>
         <p><%= comment.created_at.to_s(:default) %></p>
