@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
           flash[:success] = "Comment created!"
           redirect_to project_path(@project)
         else
-          render 'zadankai/home'
+          redirect_to @project
         end
     end
     

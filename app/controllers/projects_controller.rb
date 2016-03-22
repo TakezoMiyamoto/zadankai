@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :project_owner, only: [:edit, :update, :destroy]
   
   def readyfor
   end
@@ -63,5 +64,14 @@ class ProjectsController < ApplicationController
   
   def edit_project_params
     params.require(:project).permit(:project_name, :category, :main_image, :movie, :youtube_url, :description)
+  end
+  
+  #project のオーナーかどうか判断
+  def project_owner
+    @project = Project.find(params[:id])
+    unless @project.user_id == current_user.id
+      flash[:notice] = 'Access denied as you are not owner of this project'
+      redirect_to projects_path
+     end
   end
 end

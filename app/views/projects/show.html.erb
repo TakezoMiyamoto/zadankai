@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-2 projrct-user-profile">
       <% if @project.user != nil %>
-      <h3><%= @project.user.nickname  %></h3>
+      <h4><%= @project.user.nickname  %></h4>
         <% if @project.user.remote_avatar != nil %>
           <%= image_tag(@project.user.remote_avatar , alt: @project.user.nickname) %>
         <% else %>
@@ -19,9 +19,11 @@
         
         <h2><%= @project.project_name %></h2>
       </div>
+      <% if @project.youtube_url.present? %>
       <div class= "youtube-container">
         <%= embed(@project.youtube_url) %>
       </div>
+      <% end %>
       <div>
         <h3>どんなプロジェクトなの？</h3>
         <%== @project.description %>
