@@ -59,11 +59,11 @@ class ProjectsController < ApplicationController
   
   private
   def project_params
-    params.require(:project).permit(:project_name, :category, :main_image, :movie, :youtube_url, :description)
+    params.require(:project).permit(:project_name, :brand_name, :category, :main_image, :movie, :youtube_url, :description)
   end
   
   def edit_project_params
-    params.require(:project).permit(:project_name, :category, :main_image, :movie, :youtube_url, :description)
+    params.require(:project).permit(:project_name, :brand_name, :category, :main_image, :movie, :youtube_url, :description)
   end
   
   #project のオーナーかどうか判断
@@ -72,6 +72,6 @@ class ProjectsController < ApplicationController
     unless @project.user_id == current_user.id
       flash[:notice] = 'Access denied as you are not owner of this project'
       redirect_to projects_path
-     end
+    end
   end
 end

@@ -18,6 +18,9 @@
           <%= render 'shared/opinion_form' %>
       </section>
       <h3>コメント一覧</h3>
+      <% if @conference.opinions.count == 0 %>
+        <p>現在コメントはありません。</p>
+      <% end %>
         <% if @conference.opinions.present? %>
         <% @conference.opinions.order("created_at desc").each do |opinion| %>
         <p><%= opinion.created_at.to_s(:default) %></p>

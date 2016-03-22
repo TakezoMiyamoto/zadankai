@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-2 projrct-user-profile">
+      <% if @project.brand_name.present? %>
+      <h4><%= @project.brand_name %></h4>
+      <% end %>
       <% if @project.user != nil %>
       <h4><%= @project.user.nickname  %></h4>
         <% if @project.user.remote_avatar != nil %>
@@ -20,9 +23,11 @@
         <h2><%= @project.project_name %></h2>
       </div>
       <% if @project.youtube_url.present? %>
-      <div class= "youtube-container">
-        <%= embed(@project.youtube_url) %>
-      </div>
+        <div class= "youtube-container">
+          <%= embed(@project.youtube_url) %>
+        </div>
+      <% else %>
+        <%= image_tag(@project.main_image) %>
       <% end %>
       <div>
         <h3>どんなプロジェクトなの？</h3>
@@ -32,6 +37,9 @@
           <%= render 'shared/comment_form' %>
       </section>
       <h3>コメント一覧</h3>
+      <% if @project.comments.count == 0 %>
+        <p>現在コメントはありません。</p>
+      <% end %>
         <% if @project.comments.present? %>
         <% @project.comments.order("created_at desc").each do |comment| %>
         <p><%= comment.created_at.to_s(:default) %></p>
