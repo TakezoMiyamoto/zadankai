@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318121733) do
+ActiveRecord::Schema.define(version: 20160322100128) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20160318121733) do
     t.datetime "updated_at",   null: false
     t.string   "youtube_url"
     t.string   "description"
+    t.string   "brand_name"
   end
 
   add_index "projects", ["user_id", "created_at"], name: "index_projects_on_user_id_and_created_at"
