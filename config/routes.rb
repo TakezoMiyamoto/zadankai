@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'projects/readyfor'
 
   get 'projects/new'
+  
+  post '/projects/:project_id/toggle' => 'projects#toggle'
 
   devise_for :users, :controllers => {
     :sessions      => "users/sessions",

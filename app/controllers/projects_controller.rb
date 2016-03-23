@@ -31,6 +31,7 @@ class ProjectsController < ApplicationController
     if @users.any?
     @joinerUser = @project.joiner_users.find(@users)
     end
+    
   end
   
   def edit
@@ -54,6 +55,8 @@ class ProjectsController < ApplicationController
     flash[:success] = "Project deleted"
     redirect_to projects_path
   end
+  
+ 
   
   
   
