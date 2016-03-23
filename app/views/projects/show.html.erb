@@ -12,6 +12,10 @@
           <%= image_tag(@project.user.avatar.url , alt: @project.user.nickname) %>
         <% end %>
       <% end %>
+      <% if @project.aim_money.present? %>
+      <h4>目標金額</h4>
+      <h4>¥<%= number_to_currency(@project.aim_money) %></h4>
+      <% end %>
     </div>
     <div class= "col-sm-7">
       <div class="title">
