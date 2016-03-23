@@ -1,3 +1,5 @@
+<script type="text/javascript" src="bootstrap-progressbar.js"></script>
+<script src="progressbar.js"></script>
 <div class="container">
   <div class="row">
     <div class="col-sm-2 projrct-user-profile">
@@ -19,6 +21,18 @@
         <% if current_user != nil && current_user != @project.user %>
         <%= render 'users/join_form' %>
         <% end %>
+        <h4>しんちょく度</h4>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div id="items">
+        <% if current_user != nil && current_user == @project.user %>
+        <label><%= check_box_tag '進捗1', :type =>'check_box', class: 'checkbox'  %> STEP1.ちょっといい感じ</label>
+        <label><%= check_box_tag '進捗2', :type =>'check_box', class: 'checkbox'  %> STEP2.けっこういい感じ</label>
+        <label><%= check_box_tag '進捗3', :type =>'check_box', class: 'checkbox'  %> STEP3.プロジェクト完遂！</label>
+        <% end %>
+      </div>
+      
         
         <h2><%= @project.project_name %></h2>
       </div>
