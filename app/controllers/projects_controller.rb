@@ -7,6 +7,14 @@ class ProjectsController < ApplicationController
   
   def index
     @projects = Project.order(created_at: :desc)
+    #検索
+    @q = Project.search(params[:q])
+    @projects1 = @q.result(distinct: true)
+  end
+  
+  def search
+    @q = Project.search(params[:q])
+    @projects1 = @q.result(distinct: true)
   end
 
   def new

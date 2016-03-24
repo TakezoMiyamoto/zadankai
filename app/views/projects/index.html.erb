@@ -1,5 +1,26 @@
 
 <div class="container">
-    <%= render 'projects/list' , projects: @projects %>
+  <div class="col-xs-6 col-xs-offset-3">
+    <form class="form-inline">
+      <div class="form-group">
+          <%= search_form_for @q do |f| %>
+          <%# start 特定の文字列で始まる商品名で検索 %>
+          <%= f.label :project_name_cont, "フリーワードで検索する", class: "control-label"  %>
+          <%= f.search_field :project_name_cont, class: "form-control" %>
+          <%= f.submit "検索する", class: "btn btn-large btn-primary form-control" %>
+          <% end %>
+      </div>
+    </form>
+  </div>
+</div><br/>
+
+<div class="container">
+    <% if @q == nil %>
+        <%= render 'projects/list' , projects: @projects %>
+    <% else %>
+        <%= render 'projects/list' , projects: @projects1 %>
+    <% end %>
 </div>
+    
+
 

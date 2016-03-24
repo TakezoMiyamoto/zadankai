@@ -39,6 +39,9 @@ gem 'fog'
 gem 'streamio-ffmpeg'
   
 gem 'ckeditor'
+
+gem 'ransack'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
