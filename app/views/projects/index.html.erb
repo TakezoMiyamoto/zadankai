@@ -18,7 +18,7 @@
     <% if @q == nil %>
         <%= render 'projects/list' , projects: @projects %>
     <% else %>
-        <%= render 'projects/list' , projects: @projects1 %>
+        <%= render 'projects/list' , projects: @searchedProjects %>
     <% end %>
 </div>
     
