@@ -10,8 +10,11 @@ class Project < ActiveRecord::Base
   has_many :joiner_users, through: :joining_relationships, source: :joiner_user
   
   validates :project_name, :category, presence: true
+  validates :period_date, presence: true
+  
   mount_uploader :main_image, ImageUploader
   mount_uploader :movie, MovieUploader
+
 
   
   
