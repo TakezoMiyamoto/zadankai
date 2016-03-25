@@ -12,6 +12,9 @@
           <%= image_tag(@project.user.avatar.url , alt: @project.user.nickname) %>
         <% end %>
       <% end %>
+      <% #プロジェクト終了予定日 %>
+      <h4><%= @project.period_date %></h4>
+      
       <h4>目標金額</h4>
       <% if @project.aim_money.present? %>
         <h4>¥<%= number_to_currency(@project.aim_money) %></h4>

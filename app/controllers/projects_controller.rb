@@ -67,11 +67,11 @@ class ProjectsController < ApplicationController
   
   private
   def project_params
-    params.require(:project).permit(:project_name, :brand_name, :category, :main_image, :movie, :youtube_url, :description, :aim_money)
+    params.require(:project).permit(:project_name, :brand_name, :category, :main_image, :movie, :youtube_url, :description, :aim_money, :period_date)
   end
   
   def edit_project_params
-    params.require(:project).permit(:project_name, :brand_name, :category, :main_image, :movie, :youtube_url, :description, :aim_money)
+    params.require(:project).permit(:project_name, :brand_name, :category, :main_image, :movie, :youtube_url, :description, :aim_money, :period_date)
   end
   
   #project のオーナーかどうか判断
