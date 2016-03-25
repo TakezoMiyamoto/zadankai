@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
+  
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :project_owner, only: [:edit, :update, :destroy]
+  require 'date'
   
   def readyfor
   end
@@ -39,6 +41,9 @@ class ProjectsController < ApplicationController
     if @users.any?
     @joinerUser = @project.joiner_users.find(@users)
     end
+    
+    @d1 = Time.zone.now
+    @d2 = (@project.period_date - @d1).to_i / 1.day
   end
   
   def edit
