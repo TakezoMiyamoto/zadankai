@@ -35,7 +35,7 @@ class ConferencesController < ApplicationController
             redirect_to @project
         else
             @conference = Conference.find(params[:id])
-            @conference_title = @conference.conference_name
+            @conference_title = @conference.title
         end
         
     end
