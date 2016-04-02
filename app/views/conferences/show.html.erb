@@ -1,3 +1,9 @@
+<% content_for :head do %>
+  <meta name="title" content="<%=@conferece.conference_name%>">
+  <meta name="description" content="<%=@conference.conference_name %>に関する情報です。この商品を欲しい人、持ってる人を表示しています">
+<% end %>
+
+
 <div class="container">
   <div class="row">
     <div class="col-sm-2">
@@ -12,8 +18,6 @@
         <%== @conference.description %>
       </div>
       
-        
-    
       <section class="comment_form">
           <%= render 'shared/opinion_form' %>
       </section>

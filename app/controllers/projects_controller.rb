@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
   
   def show
     @project = Project.find(params[:id])
-    @project_tiltle = @project.project_name
+    @project_title = @project.project_name
     # 参加しているユーザー
     @users = @project.joiner_users.group('joiner_user_id')
     # 参加しているユーザーがいる場合はそのUserを取得
