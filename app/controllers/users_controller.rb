@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+    @userName = @user.nickname
     # 自分のプロジェクト一覧
     @projects = @user.projects.group('projects.id')
     @projectsCount = @projects.count
