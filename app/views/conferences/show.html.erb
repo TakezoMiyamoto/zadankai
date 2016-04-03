@@ -27,29 +27,53 @@
       <% end %>
         <% if @conference.opinions.present? %>
         <% @conference.opinions.order("created_at desc").each do |opinion| %>
-        <p><%= opinion.created_at.to_s(:default) %></p>
-        <div class="comment1-1">
-          <div class="imgL">
-            <% if opinion.remote_avatar != nil %>
-              <p><%= image_tag(opinion.remote_avatar , alt: opinion.opinion_user) %><br/>
-              <%= opinion.opinion_user %></p>
+          <% if opinion.opinion_user == @project.user.nickname %>
+            <div class="comment2-1">
+              <div class="imgL">
+                <% if opinion.remote_avatar != nil %>
+                  <p><%= image_tag(opinion.remote_avatar , alt: opinion.opinion_user) %><br/>
+                  <%= opinion.opinion_user %></p>
+              <% else %>
+                  <p><%= image_tag(opinion.avatar , class: "icon_image", alt: opinion.opinion_user) %>
+                  <%= opinion.opinion_user %></p>
+              <% end %>
+              </div>
+              <div class="commentContents">  
+                <p><%= simple_format opinion.body %></p>  
+                <p class="data"><%= opinion.created_at.to_s(:default) %></p>
+                <% if current_user != nil %>
+                <% if current_user.nickname == opinion.opinion_user%>
+                    <%= link_to "編集", edit_project_conference_opinion_path(@project, @conference, opinion), class: "btn btn-large btn-default" %>
+                    <%= link_to "削除", project_conference_opinion_path(@project, @conference, opinion), method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
+                <% end %>
+              <% end %>
+                <!--/ .commentContents-->
+              </div>  
+            </div><!-- .comment2-1 -->
           <% else %>
-              <p><%= image_tag(opinion.avatar , class: "icon_image", alt: opinion.opinion_user) %>
-              <%= opinion.opinion_user %></p>
+            <div class="comment1-1">
+              <div class="imgL">
+                <% if opinion.remote_avatar != nil %>
+                  <p><%= image_tag(opinion.remote_avatar , alt: opinion.opinion_user) %><br/>
+                  <%= opinion.opinion_user %></p>
+              <% else %>
+                  <p><%= image_tag(opinion.avatar , class: "icon_image", alt: opinion.opinion_user) %>
+                  <%= opinion.opinion_user %></p>
+              <% end %>
+              </div>
+              <div class="commentContents">  
+                <p><%= simple_format opinion.body %></p>  
+                <p class="data"><%= opinion.created_at.to_s(:default) %></p>
+                <% if current_user != nil %>
+                <% if current_user.nickname == opinion.opinion_user%>
+                    <%= link_to "編集", edit_project_conference_opinion_path(@project, @conference, opinion), class: "btn btn-large btn-default" %>
+                    <%= link_to "削除", project_conference_opinion_path(@project, @conference, opinion), method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
+                <% end %>
+              <% end %>
+                <!--/ .commentContents-->
+              </div>  
+            </div><!-- .comment1-1 -->
           <% end %>
-          </div>
-          <div class="commentContents">  
-            <p><%= simple_format opinion.body %></p>  
-            <p class="data"><%= opinion.created_at.to_s(:default) %></p>
-            <% if current_user != nil %>
-            <% if current_user.nickname == opinion.opinion_user%>
-                <%= link_to "編集", edit_project_conference_opinion_path(@project, @conference, opinion), class: "btn btn-large btn-default" %>
-                <%= link_to "削除", project_conference_opinion_path(@project, @conference, opinion), method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
-            <% end %>
-          <% end %>
-            <!--/ .commentContents-->
-          </div>  
-        </div><!-- .comment1-1 -->
       <% end %>
       <% end %>
       

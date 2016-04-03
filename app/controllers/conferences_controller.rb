@@ -17,7 +17,7 @@ class ConferencesController < ApplicationController
         @project = Project.find(params[:project_id])
         @conference = @project.conferences.build(conference_params)
         if @conference.save
-          flash[:success] = "Conference created!"
+          flash[:success] = "座談会を作成しました！"
           redirect_to project_path(@project)
         else
           render 'zadankai/home'
@@ -55,7 +55,7 @@ class ConferencesController < ApplicationController
         @project = Project.find(params[:project_id])
         @conference = Conference.find(params[:id])
         if @conference.update(edit_conference_params)
-          flash[:success] = "Your project was updated!"
+          flash[:success] = "座談会情報を更新しました！"
           redirect_to @conference
         else
           render 'edit'

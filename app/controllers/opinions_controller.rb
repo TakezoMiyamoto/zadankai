@@ -10,7 +10,7 @@ class OpinionsController < ApplicationController
         @opinion.remote_avatar = current_user.remote_avatar
         
         if @opinion.save
-          flash[:success] = "Opinion created!"
+          flash[:success] = "コメントを投稿しました！"
           redirect_to project_conference_path(@project, @conference)
         else
           redirect_to project_conference_path(@project, @conference)
