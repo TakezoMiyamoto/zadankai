@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
   before_action :set_user, only:[:show, :edit, :update, :joiner]
+  before_action :matched_user, only:[:edit, :update]
   
   def index
     @users = User.all
@@ -37,6 +38,13 @@ class UsersController < ApplicationController
   
   def set_user
     @user = User.find(params[:id])
+  end
+  
+  def matched_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to user_path(current_user.id)
+    end
   end
   
   
