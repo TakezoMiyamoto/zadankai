@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
         
         
         if @comment.save
-          flash[:success] = "Comment created!"
+          flash[:success] = "コメントを投稿しました！"
           redirect_to project_path(@project)
         else
           redirect_to @project
