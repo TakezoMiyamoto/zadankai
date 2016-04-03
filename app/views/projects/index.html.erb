@@ -4,7 +4,7 @@
     <form class="form-inline">
       <div class="form-group">
           <%= search_form_for @q do |f| %>
-          <%# start 特定の文字列で始まる商品名で検索 %>
+          <!-- start 特定の文字列で始まる商品名で検索 -->
           <%= f.label :project_name_cont, "フリーワードで検索する", class: "control-label"  %>
           <%= f.search_field :project_name_cont, class: "form-control" %>
           <%= f.submit "検索する", class: "btn btn-large btn-primary form-control" %>
