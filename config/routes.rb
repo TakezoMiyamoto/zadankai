@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
   get 'projects/readyfor'
-
+  post 'projecs/pay' => 'projects#pay'
   get 'projects/new'
 
   devise_for :users, :controllers => {
