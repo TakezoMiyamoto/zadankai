@@ -14,6 +14,15 @@ class ProjectsController < ApplicationController
     @searchedProjects = @q.result(distinct: true)
   end
   
+  def charge
+    webpay = WebPay.new('test_secret_eHn4TTgsGguBcW764a2KA8Yd')
+    webpay.charge.create(
+    amount: 400,
+    currency: "jpy",
+    card: "tok_01p4zyfJV9K4gOX"
+)
+  end
+  
   def search
     @q = Project.search(params[:q])
     @projects1 = @q.result(distinct: true)

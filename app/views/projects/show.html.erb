@@ -33,6 +33,9 @@
       </div>
     </div>
     <div class= "col-sm-7">
+       <%= form_tag(action: :pay, method: :post) do %>
+        <script src="https://checkout.webpay.jp/v3/" class="webpay-button" data-key="test_public_19DdUs78k2lV8PO8ZCaYX3JT" data-lang="ja"></script>
+      <% end %>
       <div class="title">
         
         <% if current_user != nil && current_user != @project.user %>
