@@ -6,7 +6,7 @@
       <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <div class="field">
-          <%= f.label :nickname %> <em>(6 characters maximum)</em><br>
+          <%= f.label :nickname, "お名前" %> <em>(最大6文字)</em><br>
           <%= f.text_field :nickname, autofocus: true, class: 'input form-control' %>
         </div>
         
@@ -17,12 +17,12 @@
         
       
         <div class="field">
-          <%= f.label :email %><br />
+          <%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, autofocus: true, class: 'input form-control' %>
         </div>
       
         <div class="field">
-          <%= f.label :password %>
+          <%= f.label :パスワード %>
           <% if @validatable %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
           <% end %><br />
@@ -30,12 +30,12 @@
         </div>
       
         <div class="field">
-          <%= f.label :password_confirmation %><br />
+          <%= f.label :password_confirmation, "パスワード確認" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "off", class: 'input form-control' %>
         </div><br/>
       
         <div class="actions">
-          <%= f.submit "Update the profile", class: 'btn btn-primary withripple' %>
+          <%= f.submit "プロフィールを更新する", class: 'btn btn-primary withripple' %>
         </div>
       <% end %><br/>
       <div>

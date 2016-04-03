@@ -14,6 +14,9 @@
             <% end %>
             <p>自分のプロジェクト  <%= @projects.length %>個</p>
             <p>参加しているプロジェクト  <%= @joinProjects.length %>個</p>
+            <% if @user == current_user %>
+                <%= link_to "プロフィールの編集", edit_user_path(@user), class: "btn btn-large btn-default" %>
+            <% end %>
             
             
         </div>

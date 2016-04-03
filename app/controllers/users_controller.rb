@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    
     @userName = @user.nickname
     # 自分のプロジェクト一覧
     @projects = @user.projects.group('projects.id')
@@ -41,6 +42,7 @@ class UsersController < ApplicationController
   end
   
   def matched_user
+    
     @user = User.find(params[:id])
     unless @user == current_user
       redirect_to user_path(current_user.id)
