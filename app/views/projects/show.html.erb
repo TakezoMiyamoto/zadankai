@@ -69,26 +69,30 @@
       <% end %>
         <% if @project.comments.present? %>
         <% @project.comments.order("created_at desc").each do |comment| %>
-        <p><%= comment.created_at.to_s(:default) %></p>
-        <div class="panel panel-default">
-          <div class="panel-heading">
+        
+        <div class="comment1-1">
+          <div class="imgL">
             <% if comment.remote_avatar != nil %>
-              <%= image_tag(comment.remote_avatar , class: "icon_image" , alt: comment.commenter) %>
+              <p><%= image_tag(comment.remote_avatar , alt: comment.commenter) %><br/>
+              <%= comment.commenter %></p>
             <% else %>
-              <%= image_tag(comment.avatar , class: "icon_image", alt: comment.commenter) %>
-            <% end %>
-            <%= comment.commenter %>
+              <p><%= image_tag(comment.avatar , alt: comment.commenter) %><br/>
+              <%= comment.commenter %></p>
+            <% end %>  
+          </div>
+          <div class="commentContents">  
+            <p><%= simple_format comment.body %></p>  
+            <p class="data"><%= comment.created_at.to_s(:default) %></p>
             <% if current_user != nil %>
               <% if current_user.nickname == comment.commenter%>
                 <%= link_to "編集", edit_project_comment_path(@project, comment), class: "btn btn-large btn-default" %>
                 <%= link_to "削除", project_comment_path(@project, comment), method: :delete, class: "btn btn-large btn-danger", data: { confirm: "You sure?" } %>
               <% end %>
             <% end %>
-          </div>
-          <div class="panel-body">
-            <p><%= simple_format comment.body %></p>
-          </div>
+            <!--/ .commentContents-->
+          </div>  
         </div>
+
        <% end %>
        <% end %>
       
