@@ -37,7 +37,7 @@
         <script src="https://checkout.webpay.jp/v3/" class="webpay-button" data-key="test_public_19DdUs78k2lV8PO8ZCaYX3JT" data-lang="ja"></script>
       <% end %>
       <div class="title">
-        
+        <div class="fb-like" data-href="<%= "http://#{request.host+request.fullpath}" %>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
         <% if current_user != nil && current_user != @project.user %>
         <%= render 'users/join_form' %>
         <% end %>
