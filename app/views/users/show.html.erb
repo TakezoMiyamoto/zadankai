@@ -14,10 +14,14 @@
             <% end %>
             <p>自分のプロジェクト  <%= @projects.length %>個</p>
             <p>参加しているプロジェクト  <%= @joinProjects.length %>個</p>
+            <% if @user == current_user %>
+                <%= link_to "プロフィールの編集", edit_user_path(@user), class: "btn btn-large btn-default" %>
+            <% end %>
+            
             
         </div>
         <div class="col-md-9 user-profile-projects">
-            <h4>自分のプロジェクト</h4>
+            <h4><%= @user.nickname %>さんのプロジェクト</h4>
             <% if @projects.any? %>
             <%= render 'projects/list_users' , projects: @projects %>
             <% else %>

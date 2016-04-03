@@ -97,6 +97,7 @@
     
     <div class="col-sm-3">
       <% if @users.any? %>
+      <p>プロジェクトメンバー数: <strong><%= @users.length %></strong>人</p>
         <% @users.each do |user| %>
           <%= user.nickname %>
           <% if user.remote_avatar != nil %>
