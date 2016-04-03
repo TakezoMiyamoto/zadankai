@@ -13,6 +13,13 @@
       <div class="title">
         <h2><%= @conference.title %></h2>
       </div>
+      <% if @project.youtube_url.present? %>
+        <div class= "youtube-container">
+          <%= embed(@conference.youtube_url) %>
+        </div>
+      <% else %>
+        <% # %>
+      <% end %>
       <div>
         <h3>内容</h3>
         <%== @conference.description %>
@@ -26,7 +33,7 @@
         <p>現在コメントはありません。</p>
       <% end %>
         <% if @conference.opinions.present? %>
-        <% @conference.opinions.order("created_at desc").each do |opinion| %>
+        <% @conference.opinions.order("created_at asc").each do |opinion| %>
           <% if opinion.opinion_user == @project.user.nickname %>
             <div class="comment2-1">
               <div class="imgL">
