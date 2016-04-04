@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root to: 'zadankai#home'
   get 'zadankai/about'
   get 'users/index'
